@@ -37,15 +37,14 @@ class LogIn(View):
     def post(self, request):
         form = LogInForm(request.POST or None)
         if form.is_valid():
-            email = form.cleaned_data.get("email")
-            password = form.cleaned_data.get("password")
-            user = authenticate(request, username=email, password=password)
+            email_valid = form.cleaned_data.get("email")
+            password_valid = form.cleaned_data.get("password")
+            user = authenticate(request, email=email_valid, password=password_valid)
             if user != None:
-                login(request, user)
-                return redirect("/")
+                return redirect("home")
             else:
                 request.session['invalid_user'] = 1  # 1 == True
-        return render(request, "home.html", {"form": form})
+        return render(request, "account/login.html", {"form": form})
 
 
 def autocomplete(request):

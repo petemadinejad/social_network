@@ -19,6 +19,6 @@ class LogInForm(forms.ModelForm):
         qs = User.objects.filter(email__iexact=email)  # thisIsMyEmail == thisismyemail
         if not qs.exists():
             raise forms.ValidationError("This is an invalid user.")
-        if qs.count() != 1:
+        elif qs.count() != 1:
             raise forms.ValidationError("This is an invalid user.")
         return email
