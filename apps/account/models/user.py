@@ -1,5 +1,6 @@
 from django.db import models
 
+# from apps.account.manager import UserManager
 from apps.account.validators.regex import email_regex
 
 
@@ -20,3 +21,5 @@ class User(models.Model):
 
     class Meta:
         ordering = ('-date_joined',)
+
+    # object = UserManager()

@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 from django_extensions.db.fields import AutoSlugField
 from apps.account.models.user import User
@@ -7,7 +9,7 @@ from apps.profile_user.models import Profile
 class Post(models.Model):
     body = models.TextField(verbose_name='Body')
     user = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(verbose_name='created_at', auto_now_add=True)
+    created_at = models.DateTimeField(verbose_name='created_at', default=datetime.now())
 
     def __str__(self):
         return "{}".format(self.body)[:30]

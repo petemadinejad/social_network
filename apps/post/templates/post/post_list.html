@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load post_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list of post</title>
+</head>
+<body>
+<ul>
+    {% for post in object_list %}
+        <li>
+            {{ post.body }}</li>
+            {% deltadate post.created_at %}
+        <hr>
+
+    {% endfor %}
+</ul>
+</body>
+</html>
