@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    update post
+{% endblock title %}
+
+{% block content %}
+    <div class="ui segment">
+        <h3>Update post</h3>
+        {#     used   enctype="multipart/form-data beacuse we also dealing with images such as updating an image #}
+        <form action="" method="POST" class="ui form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="ui button primary mt-5">Update</button>
+
+        </form>
+    </div>
+{% endblock content %}
